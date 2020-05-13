@@ -1,5 +1,6 @@
 package com.janaldous.travelplanner.persistence;
 
+import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
@@ -48,6 +49,8 @@ public class PlaceRepositoryTest {
 	@Test
 	public void shouldCreateEntity() throws Exception {
 		PlaceEntity place = getMockPlace();
+		
+		assertNotNull(mapper);
 		
 		mockMvc.perform(post("/places")
 				.content(mapper.writeValueAsString(place)))
